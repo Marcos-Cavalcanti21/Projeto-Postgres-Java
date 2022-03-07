@@ -4,6 +4,8 @@
 
 CREATE DATABASE NOVA_MODA_DB;
 
+conect database nova_moda_db;
+
 CREATE TABLE CATEGORIA(
   ID SERIAL PRIMARY KEY,
   NOME VARCHAR NOT NULL
@@ -235,6 +237,7 @@ LANGUAGE 'sql';
 
 
 
+select * from produtos
 ---------------------------------------------------------------
 
 
