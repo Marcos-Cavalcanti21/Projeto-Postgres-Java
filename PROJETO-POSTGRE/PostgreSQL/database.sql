@@ -187,12 +187,12 @@ LANGUAGE 'sql';
 
 -------------------------------------------------------------
 
-CREATE OR REPLACE PROCEDURE INSERT_VENDA(V_CLIENTE VARCHAR
+CREATE OR REPLACE PROCEDURE POST_VENDA(V_CLIENTE VARCHAR
                                          , V_FUNCIONARIO VARCHAR
                                          , V_PRODUTO VARCHAR
                                          , V_QTD INT
                                          , V_ENTREGA BOOLEAN
-                                         , V_FRETE VARCHAR
+                                         , V_FRETE ANY
                                          , V_ENTREGADOR VARCHAR)
 AS $$
 	INSERT INTO VENDA(IDCLIENTE, IDFUNCIONARIO, IDPRODUTO, QTD, TOTAL, ENTREGA, FRETEID, IDENTREGADOR)
@@ -202,13 +202,13 @@ AS $$
 /*PRODUTO*/ (SELECT ID FROM PRODUTO WHERE NOME LIKE '%'||V_PRODUTO||'%'),
 /*QUANTIDADE*/ V_QTD,
 /*VALOR*/   (SELECT PRECO FROM PRODUTO WHERE NOME LIKE '%'||V_PRODUTO||'%' ),
-			(SELECT VALOR FROM FRETE
+			(SELECT VALOR FROM FRETE WHERE DISTANCIA LIKE V_FRETE),
 /*BOOLEAN*/    V_ENTREGA,
 /*ENTRGDR*/ (SELECT ID FROM FUNCIONARIO WHERE NOME LIKE '%'||V_ENTREGADOR||'%')
       );
 
-      UPDATE PRODUTO SET ESTOQUE =(ESTOQUE - V_QTD) WHERE NOME LIKE '%'||V_PRODUTO||'%'
-      UPDATE PRODUTO SET VENDAS = (VENDAS + V_QTD) WHERE NOME LIKE '%'||V_PRODUTO||'%'
+      UPDATE PRODUTO SET ESTOQUE = (ESTOQUE - V_QTD) WHERE NOME LIKE '%'||V_PRODUTO||'%';
+      UPDATE PRODUTO SET VENDAS = (VENDAS + V_QTD) WHERE NOME LIKE '%'||V_PRODUTO||'%';
 $$
 LANGUAGE 'sql';
 ---------------------------------------------------------------
