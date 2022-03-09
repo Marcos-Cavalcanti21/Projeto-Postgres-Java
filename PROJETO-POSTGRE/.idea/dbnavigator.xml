@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DataExportManager">
@@ -73,7 +73,7 @@
     <connections>
       <connection id="402546db-0a33-4278-8a58-f8d16bc59d3a" active="true" signed="false">
         <database>
-          <name value="Connection" />
+          <name value="PostgreSQL 12" />
           <description value="" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
@@ -84,7 +84,7 @@
           <url-type value="DATABASE" />
           <host value="localhost" />
           <port value="5433" />
-          <database value="postgres" />
+          <database value="nova_moda_db" />
           <type value="USER_PASSWORD" />
           <user value="postgres" />
           <deprecated-pwd value="MTIzNA==" />

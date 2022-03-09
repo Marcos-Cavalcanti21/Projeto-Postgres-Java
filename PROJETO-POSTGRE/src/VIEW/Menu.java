@@ -4,7 +4,7 @@ import SERVICE.CONTROLLER.CaixaController;
 import SERVICE.Get;
 
 public class Menu {
-    public static void index(){
+    public static void inicio(){
         while (0==0){
             System.out.println("\n\n===============================");
             System.out.println("Para iniciar Abra o caixa");
@@ -19,4 +19,8 @@ public class Menu {
             }
         }
     }
+
+	public static void venda(){
+
+	}
 }
