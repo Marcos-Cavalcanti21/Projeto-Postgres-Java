@@ -19,7 +19,7 @@ public class ConexaoPostSQL {
             Class.forName(driverName);
 
             //DADOS DA CONEXÃO
-            String serverName = "localhost:5433";
+            String serverName = "localhost:5432";
             String myDataBase = "nova_moda_db";
             String url = "jdbc:postgresql://"+serverName+"/"+myDataBase;
         /*
