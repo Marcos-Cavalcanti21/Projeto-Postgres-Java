@@ -223,23 +223,158 @@ LANGUAGE 'sql';
 ----------------------------------------------------------------
 
 ---------------------------
------ GETS PROCEDURES -----
+----- GETS FUNCTION -----
 ---------------------------
 
------- GET_ALL_FROM -------
-
-CREATE OR REPLACE PROCEDURE GET_ESTOQUE_POR_PRODUTO(NOME_PRODUTO VARCHAR)
-
+------ GET_ALL_FROM CATEGORIA ----
+CREATE OR REPLACE FUNCTION GET_ALL_FROM_CATEGORIA(C_NOME VARCHAR)
+RETURNS TABLE(ID INT
+  			 ,NOME VARCHAR)
 AS $$
-      SELECT ID, NOME, ESTOQUE, VENDAS FROM PRODUTO WHERE NOME LIKE NOME_PRODUTO;
+      SELECT * FROM CATEGORIA WHERE NOME LIKE '%'||C_NOME||'%';
 $$
 LANGUAGE 'sql';
 
 
 
-select * from produtos
----------------------------------------------------------------
 
+
+------ GET_ALL_FROM CARGO ---------
+
+CREATE OR REPLACE FUNCTION GET_ALL_FROM_CARGO(C_TITULO VARCHAR)
+RETURNS TABLE(ID INT
+  			 ,TITULO VARCHAR)
+
+AS $$
+      SELECT * FROM CARGO WHERE TITULO LIKE '%'|| C_TITULO ||'%';
+$$
+LANGUAGE 'sql';
+
+
+
+
+
+------ GET_ALL_FROM PRODUTO ------
+
+CREATE OR REPLACE FUNCTION GET_ALL_FROM_PRODUTO(P_NOME VARCHAR)
+RETURNS TABLE(ID INT
+  			 ,NOME VARCHAR
+  			 ,CATEGORIAID INT
+  			 ,VENDAS INT
+  			 ,ESTOQUE INT
+  			 ,PRECO MONEY)
+
+AS $$
+      SELECT * FROM PRODUTO WHERE NOME LIKE '%'|| P_NOME ||'%';
+$$
+LANGUAGE 'sql';
+
+
+
+
+
+------ GET_ALL_FROM FRETE ---------
+
+--TRABALHAR NESSA LOGICA
+CREATE OR REPLACE FUNCTION GET_ALL_FROM_FRETE(NOME_PRODUTO VARCHAR)
+RETURNS TABLE(ID INT
+             ,DISTANCIA FLOAT
+             ,VALOR MONEY)
+AS $$
+      SELECT * FROM PRODUTO WHERE NOME LIKE '%'|| NOME_PRODUTO ||'%';
+$$
+LANGUAGE 'sql';
+
+
+
+
+
+------ GET_ALL_FROM FUNCIONARIO ---
+
+CREATE OR REPLACE FUNCTION GET_ALL_FROM_FUNCIONARIO(F_NOME VARCHAR)
+RETURNS TABLE(ID INT
+             ,NOME VARCHAR
+             ,TELEFONE VARCHAR
+             ,CPF VARCHAR
+             ,VALORVENDIDO MONEY
+             ,QTDENTREG INT
+             ,ENDERECO VARCHAR
+             ,EMAIL VARCHAR
+             ,CARGOID INT)
+AS $$
+      SELECT * FROM FUNCIONARIO WHERE NOME LIKE '%'|| F_NOME ||'%';
+$$
+LANGUAGE 'sql';
+
+
+
+
+------ GET_ALL_FROM CLIENTE -------
+
+CREATE OR REPLACE FUNCTION GET_ALL_FROM_CLIENTE(C_NOME VARCHAR)
+RETURNS TABLE(ID INT
+             ,NOME VARCHAR
+             ,TELEFONE VARCHAR
+             ,ENDERECO VARCHAR
+             ,EMAIL VARCHAR
+             ,CPF VARCHAR)
+AS $$
+      SELECT * FROM CLIENTE WHERE NOME LIKE '%'|| C_NOME ||'%';
+$$
+LANGUAGE 'sql';
+
+
+
+
+------ GET_ALL_FROM VENDA ---------
+--trabalhar na logica
+
+CREATE OR REPLACE FUNCTION GET_ALL_FROM_VENDA(V_NOME VARCHAR)
+RETURNS TABLE(ID INT
+             ,DATAHORA TIMESTAMP
+             ,IDCLIENTE INT
+             ,IDFUNCIONARIO INT
+             ,IDPRODUTO INT
+             ,QTD INT
+             ,TOTAL MONEY
+             ,ENTREGA BOOLEAN
+             ,IDENTREGADOR INT
+             ,FRETEID INT)
+
+AS $$
+      SELECT * FROM VENDA WHERE NOME LIKE '%'|| V_NOME ||'%';
+$$
+LANGUAGE 'sql';
+
+
+
+------ GET_ALL_FROM CAIXA ---------
+--FEITO OK
+CREATE OR REPLACE FUNCTION GET_ALL_FROM_CAIXA(C_DATA DATE)
+RETURNS TABLE(DIA DATE
+             ,INICIO MONEY
+             ,ENTRADAS MONEY
+             ,SAIDAS MONEY
+             ,SALDO MONEY)
+AS $$
+      SELECT * FROM CAIXA WHERE DIA = C_DATA;
+$$
+LANGUAGE 'sql';
+
+
+----------------------------------------------------
+
+
+
+
+SELECT ID, NOME, ESTOQUE, VENDAS FROM GET_ALL_FROM_PRODUTO('%%')
+
+
+CALL INSERT_PRODUTO('MACARRAO','massas','15,50')
+
+---------------------------------------------------------------
+select * from categoria
+---------------------------------------------------------------
 
 
 
