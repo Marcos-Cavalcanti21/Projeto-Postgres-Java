@@ -151,7 +151,7 @@ CREATE OR REPLACE PROCEDURE INSERT_PRODUTO(P_NOME VARCHAR
                                            , P_PRECO MONEY)
 AS $$
 		INSERT INTO PRODUTO (NOME, CATEGORIAID, PRECO)
-        VALUES (P_NOME
+        VALUES (P_NOME 
                 , (SELECT ID FROM CATEGORIA WHERE NOME LIKE '%'||P_CATEGORIA||'%')
                 , P_PRECO);
 $$
@@ -244,7 +244,7 @@ LANGUAGE 'sql';
 CREATE OR REPLACE FUNCTION GET_ALL_FROM_CARGO(C_TITULO VARCHAR)
 RETURNS TABLE(ID INT
   			 ,TITULO VARCHAR)
-
+             
 AS $$
       SELECT * FROM CARGO WHERE TITULO LIKE '%'|| C_TITULO ||'%';
 $$
@@ -263,7 +263,7 @@ RETURNS TABLE(ID INT
   			 ,VENDAS INT
   			 ,ESTOQUE INT
   			 ,PRECO MONEY)
-
+             
 AS $$
       SELECT * FROM PRODUTO WHERE NOME LIKE '%'|| P_NOME ||'%';
 $$
@@ -288,7 +288,7 @@ LANGUAGE 'sql';
 
 
 
-
+		
 ------ GET_ALL_FROM FUNCIONARIO ---
 
 CREATE OR REPLACE FUNCTION GET_ALL_FROM_FUNCIONARIO(F_NOME VARCHAR)
@@ -340,7 +340,7 @@ RETURNS TABLE(ID INT
              ,ENTREGA BOOLEAN
              ,IDENTREGADOR INT
              ,FRETEID INT)
-
+              
 AS $$
       SELECT * FROM VENDA WHERE NOME LIKE '%'|| V_NOME ||'%';
 $$
@@ -375,6 +375,7 @@ CALL INSERT_PRODUTO('MACARRAO','massas','15,50')
 ---------------------------------------------------------------
 select * from categoria
 ---------------------------------------------------------------
+
 
 
 
