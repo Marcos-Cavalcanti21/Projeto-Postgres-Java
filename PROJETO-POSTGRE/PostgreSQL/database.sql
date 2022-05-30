@@ -88,6 +88,8 @@ CREATE TABLE FUNCIONARIO(
 
 --- CONFIGURAÇÕES DE CAIXA ---
 
+--------- FUNC ABRE CAIXA ---------
+
 CREATE OR REPLACE FUNCTION ABRE_CAIXA(MONEY)
 RETURNS VOID
 AS $$
@@ -96,7 +98,8 @@ AS $$
 $$
 LANGUAGE 'sql';
 
--------------------------------------------------------
+
+---------- FUNC ATUALIZA CAIXA ----------
 
 CREATE OR REPLACE FUNCTION ATUALIZA_CAIXA(MONEY)
 RETURNS VOID
@@ -112,7 +115,8 @@ AS $$
 $$
 LANGUAGE 'sql';
 
--------------------------------------------------------
+
+------------ FUNC FECHA CAIXA -------------
 
 CREATE OR REPLACE FUNCTION FECHA_CAIXA(MONEY)
 RETURNS MONEY
@@ -121,8 +125,8 @@ AS $$
 $$
 LANGUAGE 'sql';
 
-
 --------------------------------------------------------
+
 
 ------------------------
 -- INSERTS PROCEDURES --
@@ -135,7 +139,8 @@ AS $$
 $$
 LANGUAGE 'sql';
 
-----------------------------------------------------------
+
+--------- PROC INSERT CARGO ----------
 
 CREATE OR REPLACE PROCEDURE INSERT_CARGO(C_TITULO VARCHAR)
 AS $$
@@ -144,20 +149,22 @@ AS $$
 $$
 LANGUAGE 'sql';
 
-----------------------------------------------------------
+
+-------- PROC INSERT PRODUTO ---------
 
 CREATE OR REPLACE PROCEDURE INSERT_PRODUTO(P_NOME VARCHAR
                                            , P_CATEGORIA VARCHAR
                                            , P_PRECO MONEY)
 AS $$
 		INSERT INTO PRODUTO (NOME, CATEGORIAID, PRECO)
-        VALUES (P_NOME 
+        VALUES (P_NOME
                 , (SELECT ID FROM CATEGORIA WHERE NOME LIKE '%'||P_CATEGORIA||'%')
                 , P_PRECO);
 $$
 LANGUAGE 'sql';
 
-----------------------------------------------------------
+
+-------- PROC INSERT FUNCIONARIO --------
 
 CREATE OR REPLACE PROCEDURE INSERT_FUNCIONARIO(F_NOME VARCHAR
                                                , F_TELEFONE VARCHAR
@@ -172,7 +179,8 @@ AS $$
 $$
 LANGUAGE 'sql';
 
------------------------------------------------------------
+
+---------- PROC INSERT CLIENTE -----------
 
 CREATE OR REPLACE PROCEDURE INSERT_CLIENTE(C_NOME VARCHAR
                                            , C_TELEFONE VARCHAR
@@ -185,7 +193,8 @@ AS $$
 $$
 LANGUAGE 'sql';
 
--------------------------------------------------------------
+
+------------ PROC ADD VENDA --------------
 
 CREATE OR REPLACE PROCEDURE POST_VENDA(V_CLIENTE VARCHAR
                                          , V_FUNCIONARIO VARCHAR
@@ -211,7 +220,9 @@ AS $$
       UPDATE PRODUTO SET VENDAS = (VENDAS + V_QTD) WHERE NOME LIKE '%'||V_PRODUTO||'%';
 $$
 LANGUAGE 'sql';
----------------------------------------------------------------
+
+
+------------ PROC INSERT ESTOQUE --------------
 
 CREATE OR REPLACE PROCEDURE INSERT_ESTOQUE(E_PRODUTO VARCHAR
                                           , E_QTD INT)
@@ -227,6 +238,7 @@ LANGUAGE 'sql';
 ---------------------------
 
 ------ GET_ALL_FROM CATEGORIA ----
+
 CREATE OR REPLACE FUNCTION GET_ALL_FROM_CATEGORIA(C_NOME VARCHAR)
 RETURNS TABLE(ID INT
   			 ,NOME VARCHAR)
@@ -236,22 +248,16 @@ $$
 LANGUAGE 'sql';
 
 
-
-
-
 ------ GET_ALL_FROM CARGO ---------
 
 CREATE OR REPLACE FUNCTION GET_ALL_FROM_CARGO(C_TITULO VARCHAR)
 RETURNS TABLE(ID INT
   			 ,TITULO VARCHAR)
-             
+
 AS $$
       SELECT * FROM CARGO WHERE TITULO LIKE '%'|| C_TITULO ||'%';
 $$
 LANGUAGE 'sql';
-
-
-
 
 
 ------ GET_ALL_FROM PRODUTO ------
@@ -263,14 +269,11 @@ RETURNS TABLE(ID INT
   			 ,VENDAS INT
   			 ,ESTOQUE INT
   			 ,PRECO MONEY)
-             
+
 AS $$
       SELECT * FROM PRODUTO WHERE NOME LIKE '%'|| P_NOME ||'%';
 $$
 LANGUAGE 'sql';
-
-
-
 
 
 ------ GET_ALL_FROM FRETE ---------
