@@ -1,10 +1,12 @@
----------------------------
---------- TABELAS ---------
----------------------------
+
 
 CREATE DATABASE NOVA_MODA_DB;
 
 conect database nova_moda_db;
+
+---------------------------
+--------- TABELAS ---------
+---------------------------
 
 CREATE TABLE CATEGORIA(
   ID SERIAL PRIMARY KEY,
