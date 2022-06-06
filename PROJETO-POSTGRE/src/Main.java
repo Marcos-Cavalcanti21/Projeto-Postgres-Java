@@ -24,6 +24,7 @@ public class Main {
         -Venda (por cliente, por vendedor, por entregador, por dia)
         -cliente (total $ de vendas por mês, números de compras no mês, aniversariante do mês)
 
+
 ================================================================================================================
  */
 

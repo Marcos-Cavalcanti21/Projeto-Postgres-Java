@@ -1,11 +1,8 @@
 package SERVICE.CONTROLLER;
-
-import SERVICE.ConexaoPostSQL;
-import VIEW.Menu;
-
-import java.sql.*;
-
+import SERVICE.DAO.CaixaDAO;
 public class CaixaController {
-    public static void abreCaixa(){}
+    public static void abreCaixa(){
+        CaixaDAO.abreCaixa();
+    }
 }
 

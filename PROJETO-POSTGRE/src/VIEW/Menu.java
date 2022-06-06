@@ -1,6 +1,7 @@
 package VIEW;
 
 import SERVICE.CONTROLLER.CaixaController;
+import SERVICE.CONTROLLER.CargoController;
 import SERVICE.Get;
 
 public class Menu {
@@ -15,6 +16,9 @@ public class Menu {
             switch (selected){
                 case 1:
                     CaixaController.abreCaixa();
+                    break;
+                case 2:
+                    CargoController.InsereCargo();
                     break;
             }
         }

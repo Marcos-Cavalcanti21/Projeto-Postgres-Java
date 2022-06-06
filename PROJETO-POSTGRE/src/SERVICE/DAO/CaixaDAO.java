@@ -1,6 +1,6 @@
 package SERVICE.DAO;
 
-import SERVICE.ConexaoPostSQL;
+import SERVICE.ConnectDB.ConexaoPostSQL;
 import VIEW.Menu;
 
 import java.sql.Connection;
