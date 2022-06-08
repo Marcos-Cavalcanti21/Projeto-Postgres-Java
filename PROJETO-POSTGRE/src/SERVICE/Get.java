@@ -46,7 +46,7 @@ public class Get {
     public static String string(){
         Scanner get = new Scanner(System.in);
 
-        return get.nextLine();
+        return get.nextLine().toLowerCase();
 
     }
 }

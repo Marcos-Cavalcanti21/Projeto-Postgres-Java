@@ -1,5 +1,7 @@
 package SERVICE.CONTROLLER;
 
-public class ClienteController {
+import SERVICE.DAO.ClienteDAO;
 
+public class ClienteController {
+    public static void insereClienteController(){ ClienteDAO.insereCliente(); }
 }

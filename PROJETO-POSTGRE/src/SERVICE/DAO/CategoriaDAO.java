@@ -1,6 +1,6 @@
 package SERVICE.DAO;
 
-import MODEL.Cargo;
+import MODEL.Categoria;
 import SERVICE.ConnectDB.ConexaoPostSQL;
 import SERVICE.Get;
 
@@ -8,26 +8,25 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class CargoDAO {
-    public static void InsereCargo(){
+public class CategoriaDAO {
+    public static void insereCategoria(){
+        String nome;
 
-        String titulo;
+        System.out.println("Nova Categoria: ");
+        nome = Get.string();
 
-        System.out.println("Novo Cargo: ");
-        titulo = Get.string();
+        Categoria c = new Categoria(0, nome);
 
-        Cargo c = new Cargo(0, titulo);
         Connection conexao = ConexaoPostSQL.getConecta_DB();
+
         try{
-            String sql = "CALL INSERT_CARGO(?);";
+            String sql = "CALL INSERT_CATEGORIA(?)";
             PreparedStatement statement = conexao.prepareStatement(sql);
-            statement.setString(1, c.getTitulo());
+            statement.setString(1, nome);
 
             statement.executeUpdate();
 
-            System.out.println("---Cargo Cadastrado com Sucesso!!---");
-
-            // System.out.println("\n\nVenda Efetuada!");
+            System.out.println("---Categoria Cadastrada com Sucesso!!---");
 
         }catch (SQLException e){
             e.printStackTrace();

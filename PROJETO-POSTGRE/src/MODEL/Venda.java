@@ -1,109 +1,71 @@
 package MODEL;
 
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 
 public class Venda {
     private int id;
-    private Time dataHora;
-    private int clienteId;
-    private int funcionarioId;
-    private int produtoId;
+    private SimpleDateFormat dataHora;
+    private String cliente;
+    private String funcionario;
+    private String produto;
     private int qtd;
     private double total;
     private boolean entrega;
-    private int entregadorId;
-    private int freteId;
+    private String entregador;
+    private double frete;
 
-    public Venda(int id, Time dataHora, int clienteId, int funcionarioId, int produtoId, int qtd, double total, boolean entrega, int entregadorId, int freteId) {
+    public Venda(int id, SimpleDateFormat dataHora, String cliente, String funcionario, String produto, int qtd, double total, boolean entrega, String entregador, double frete) {
         this.id = id;
         this.dataHora = dataHora;
-        this.clienteId = clienteId;
-        this.funcionarioId = funcionarioId;
-        this.produtoId = produtoId;
+        this.cliente = cliente;
+        this.funcionario = funcionario;
+        this.produto = produto;
         this.qtd = qtd;
         this.total = total;
         this.entrega = entrega;
-        this.entregadorId = entregadorId;
-        this.freteId = freteId;
+        this.entregador = entregador;
+        this.frete = frete;
     }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public void setId(int id) { this.id = id; }
 
-    public Time getDataHora() {
-        return dataHora;
-    }
+    public SimpleDateFormat getDataHora() { return dataHora; }
 
-    public void setDataHora(Time dataHora) {
-        this.dataHora = dataHora;
-    }
+    public void setDataHora(SimpleDateFormat dataHora) { this.dataHora = dataHora; }
 
-    public int getClienteId() {
-        return clienteId;
-    }
+    public String getCliente() { return cliente; }
 
-    public void setClienteId(int clienteId) {
-        this.clienteId = clienteId;
-    }
+    public void setCliente(String cliente) { this.cliente = cliente; }
 
-    public int getFuncionarioId() {
-        return funcionarioId;
-    }
+    public String getFuncionario() { return funcionario; }
 
-    public void setFuncionarioId(int funcionarioId) {
-        this.funcionarioId = funcionarioId;
-    }
+    public void setFuncionario(String funcionario) { this.funcionario = funcionario; }
 
-    public int getProdutoId() {
-        return produtoId;
-    }
+    public String getProduto() { return produto; }
 
-    public void setProdutoId(int produtoId) {
-        this.produtoId = produtoId;
-    }
+    public void setProduto(String produto) { this.produto = produto; }
 
-    public int getQtd() {
-        return qtd;
-    }
+    public int getQtd() { return qtd; }
 
-    public void setQtd(int qtd) {
-        this.qtd = qtd;
-    }
+    public void setQtd(int qtd) { this.qtd = qtd; }
 
-    public double getTotal() {
-        return total;
-    }
+    public double getTotal() { return total; }
 
-    public void setTotal(double total) {
-        this.total = total;
-    }
+    public void setTotal(double total) { this.total = total; }
 
-    public boolean isEntrega() {
-        return entrega;
-    }
+    public boolean isEntrega() { return entrega; }
 
-    public void setEntrega(boolean entrega) {
-        this.entrega = entrega;
-    }
+    public void setEntrega(boolean entrega) { this.entrega = entrega; }
 
-    public int getEntregadorId() {
-        return entregadorId;
-    }
+    public String getEntregador() { return entregador; }
 
-    public void setEntregadorId(int entregadorId) {
-        this.entregadorId = entregadorId;
-    }
+    public void setEntregador(String entregador) { this.entregador = entregador; }
 
-    public int getFreteId() {
-        return freteId;
-    }
+    public double getFrete() { return frete; }
 
-    public void setFreteId(int freteId) {
-        this.freteId = freteId;
-    }
+    public void setFrete(double freteId) { this.frete = freteId; }
+
 }

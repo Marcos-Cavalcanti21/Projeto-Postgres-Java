@@ -8,7 +8,7 @@ import SERVICE.Get;
 import java.sql.*;
 
 public class CargoController {
-    public static void InsereCargo() {
+    public static void InsereCargoController() {
         CargoDAO.InsereCargo();
     }
 }

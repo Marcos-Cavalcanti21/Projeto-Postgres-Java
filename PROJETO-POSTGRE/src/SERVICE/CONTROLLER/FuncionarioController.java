@@ -1,5 +1,7 @@
 package SERVICE.CONTROLLER;
 
-public class FuncionarioController {
+import SERVICE.DAO.FuncionarioDAO;
 
+public class FuncionarioController {
+    public static void insereFuncionarioController(){ FuncionarioDAO.insereFuncionario(); }
 }

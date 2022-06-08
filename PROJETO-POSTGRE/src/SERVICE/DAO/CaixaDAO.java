@@ -19,28 +19,27 @@ public class CaixaDAO {
 
             System.out.println("\n\nCaixa aberto com Sucesso!");
 
-            Menu.pdv();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
         ConexaoPostSQL.fecharConexao();
     }
 
-    public static void atualizaCaixa(){
-
-        Connection conexao = ConexaoPostSQL.getConecta_DB();
-        try{
-            String sql = "SELECT ATUALIZA_CAIXA()";
-            Statement statement = conexao.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
-
-            System.out.println("\n\nVenda Efetuada!");
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-    }
+//    public static void atualizaCaixa(){
+//
+//        Connection conexao = ConexaoPostSQL.getConecta_DB();
+//        try{
+//            String sql = "SELECT ATUALIZA_CAIXA()";
+//            Statement statement = conexao.createStatement();
+//            ResultSet resultSet = statement.executeQuery(sql);
+//
+//            System.out.println("\n\nVenda Efetuada!");
+//
+//        }catch (SQLException e){
+//            e.printStackTrace();
+//        }
+//        ConexaoPostSQL.fecharConexao();
+//    }
 
     public static void fechaCaixa(){
 
@@ -55,6 +54,7 @@ public class CaixaDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         ConexaoPostSQL.fecharConexao();
     }
 }
