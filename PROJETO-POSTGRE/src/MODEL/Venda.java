@@ -15,7 +15,7 @@ public class Venda {
     private String entregador;
     private double frete;
 
-    public Venda(int id, SimpleDateFormat dataHora, String cliente, String funcionario, String produto, int qtd, double total, boolean entrega, String entregador, double frete) {
+    public Venda(int id, SimpleDateFormat dataHora, String cliente, String funcionario, String produto, int qtd, double total, boolean entrega, double frete, String entregador) {
         this.id = id;
         this.dataHora = dataHora;
         this.cliente = cliente;
@@ -24,8 +24,18 @@ public class Venda {
         this.qtd = qtd;
         this.total = total;
         this.entrega = entrega;
-        this.entregador = entregador;
         this.frete = frete;
+        this.entregador = entregador;
+    }
+
+    public Venda(String cliente, String funcionario, String produto, int qtd, boolean entrega, double frete, String entregador) {
+        this.cliente = cliente;
+        this.funcionario = funcionario;
+        this.produto = produto;
+        this.qtd = qtd;
+        this.entrega = entrega;
+        this.frete = frete;
+        this.entregador = entregador;
     }
 
     public int getId() { return id; }
