@@ -12,7 +12,7 @@ public class Funcionario {
     private String endereco;
     private String email;
     private String cargo;
-
+    //Cadastro
     public Funcionario(String nome, String telefone, String cpf, String endereco, String email, String cargo) {
         this.nome = nome;
         this.telefone = telefone;
@@ -22,6 +22,19 @@ public class Funcionario {
         this.cargo = cargo;
     }
 
+    //Vendedor
+    public Funcionario(int id, String nome, String telefone, String cpf, float valorVendido, String endereco, String email, String cargo) {
+        this.id = id;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.cpf = cpf;
+        this.valorVendido = valorVendido;
+        this.endereco = endereco;
+        this.email = email;
+        this.cargo = cargo;
+    }
+
+    //Entregador
     public Funcionario(int id, String nome, String telefone, String cpf, float valorVendido, int qtdEntreg, String endereco, String email, String cargo) {
         this.id = id;
         this.nome = nome;
@@ -33,6 +46,7 @@ public class Funcionario {
         this.email = email;
         this.cargo = cargo;
     }
+
 
     public int getId() { return id; }
 
