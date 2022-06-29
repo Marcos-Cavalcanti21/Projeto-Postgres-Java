@@ -19,17 +19,25 @@ public class ConexaoPostSQL {
             Class.forName(driverName);
 
             //DADOS DA CONEXÃO
-            String serverName = "localhost:5432";
-            String myDataBase = "nova_moda_db";
+            //String serverName = "localhost:5432";
+            //String myDataBase = "nova_moda_db";
+            //String url = "jdbc:postgresql://"+serverName+"/"+myDataBase;
+
+            String serverName = "ec2-44-206-89-185.compute-1.amazonaws.com";
+            String myDataBase = "dcaddc7075upvm";
             String url = "jdbc:postgresql://"+serverName+"/"+myDataBase;
+
         /*
         Pode acontecer que a conexão ao servidor exija porta
         porta padrão do Postgre 5432
         serverName = "localhost:5432";
          */
 
-            String username = "postgres";
-            String password = "1234";
+            //String username = "postgres";
+            //String password = "1234";
+
+            String username = "scemlhlhefnlnb";
+            String password = "58f67f2977b6368edf56c3ddcdd5de17c020591bd7c6497d8cc925de0abb1a64";
 
             connection = DriverManager.getConnection(url,username,password);
 
