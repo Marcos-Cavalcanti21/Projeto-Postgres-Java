@@ -33,7 +33,7 @@ public class Get {
                 break;
             }catch (InputMismatchException e){
                 System.out.println("\n\nApenas números");
-                System.out.println("Não use pontos, apenas 'virgulas' para casas decimais.");
+                System.out.println("Não use ponto, apenas 'virgula' para casas decimais.");
                 System.out.println("Ex: 99999,35");
                 System.out.println("Tente Novamente: ");
                 get.nextLine();
