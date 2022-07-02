@@ -472,6 +472,10 @@ CALL INSERT_PRODUTO('MACARRAO','massas','15,50')
 select * from categoria
 ---------------------------------------------------------------
 
+CALL INSERT_PRODUTO('Regata Nike','camisas','25.00');
+
+delete from produto
+
 
 
 
