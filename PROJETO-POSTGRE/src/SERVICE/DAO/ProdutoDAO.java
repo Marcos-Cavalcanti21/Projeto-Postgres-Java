@@ -11,8 +11,8 @@ import java.sql.SQLException;
 
 public class ProdutoDAO {
     public static void insereProduto() {
-        String nome, categoria, precoStr;
-        double preco;
+        String nome, categoria;
+        PGmoney preco;
 
         System.out.println("Nome: ");
         nome = Get.string();
@@ -21,20 +21,18 @@ public class ProdutoDAO {
         categoria = Get.string();
 
         System.out.println("Preço: ");
-        preco = Get.decimal();
-        precoStr = String.valueOf(preco);
+        preco = Get.money();
+        System.out.println(preco);
 
-        System.out.println(precoStr);
-
-        Produto p = new Produto(nome, categoria, precoStr);
+        Produto p = new Produto(nome, categoria, preco);
         Connection conexao = ConexaoPostSQL.getConecta_DB();
 
         try {
-            String sql = "CALL INSERT_PRODUTO(?,?,?);";
+            String sql = "CALL INSERT_PRODUTO(?,?,'" + p.getPreco() + "');";
             PreparedStatement statement = conexao.prepareStatement(sql);
             statement.setString(1, p.getNome());
             statement.setString(2, p.getCategoria());
-            statement.setObject(3, p.getPreco());
+            //statement.setString(3, "'"+ p.getPreco() +"'");
 
             int rows = statement.executeUpdate();
 

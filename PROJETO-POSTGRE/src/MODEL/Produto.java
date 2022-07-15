@@ -1,20 +1,25 @@
 package MODEL;
 
+import org.jetbrains.annotations.Nullable;
+import org.postgresql.util.PGobject;
+import org.postgresql.util.PGmoney;
+
 public class Produto {
     private int id;
     private String nome;
     private String categoria;
     private int vendas;
     private int estoque;
-    private String preco;
+    private PGmoney preco;
 
-    public Produto(String nome, String categoria, String preco) {
+
+    public Produto(String nome, String categoria, PGmoney preco) {
         this.nome = nome;
         this.categoria = categoria;
         this.preco = preco;
     }
 
-    public Produto(int id, String nome, String categoria, int vendas, int estoque, String preco) {
+    public Produto(int id, String nome, String categoria, int vendas, int estoque, PGmoney preco) {
         this.id = id;
         this.nome = nome;
         this.categoria = categoria;
@@ -43,7 +48,7 @@ public class Produto {
 
     public void setEstoque(int estoque) { this.estoque = estoque; }
 
-    public String getPreco() { return preco; }
+    public @Nullable String getPreco() { return (String.valueOf(preco)); }
 
-    public void setPreco(String preco) { this.preco = preco; }
+    public void setPreco(PGmoney preco) { this.preco = preco; }
 }
