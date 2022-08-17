@@ -93,14 +93,27 @@ public class Menu {
     }
     public static void consultar(){
         while (0==0){
-            System.out.println("()Estoque");
-            System.out.println("()Categoria");
-            System.out.println("()Funcionarios");
-            System.out.println("()Cargo");
-            System.out.println("()Produto");
-            System.out.println("()Cliente");
-            System.out.println("()Vendas");
+            System.out.println("======== Consultas =========");
+            System.out.println("(1)Estoque");
+            System.out.println("(2)Categoria");
+            System.out.println("(3)Funcionarios");
+            System.out.println("(4)Cargo");
+            System.out.println("(5)Produto");
+            System.out.println("(6)Cliente");
+            System.out.println("(7)Vendas");
+            System.out.println("(0)Voltar");
+            int selected = Get.integer();
 
+            switch (selected){
+                case 1:
+                    EstoqueController.insereEstoqueController();
+                    break;
+                case 0:
+                    inicio();
+                    break;
+                default:
+                    System.out.println("Escolha uma das opções acima!");
+            }
         }
 
     }
