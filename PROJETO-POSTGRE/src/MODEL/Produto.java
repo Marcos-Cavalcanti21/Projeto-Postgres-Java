@@ -1,7 +1,5 @@
 package MODEL;
 
-import org.jetbrains.annotations.Nullable;
-import org.postgresql.util.PGobject;
 import org.postgresql.util.PGmoney;
 
 public class Produto {
@@ -48,7 +46,7 @@ public class Produto {
 
     public void setEstoque(int estoque) { this.estoque = estoque; }
 
-    public @Nullable String getPreco() { return (String.valueOf(preco)); }
+    public String getPreco() { return (String.valueOf(preco)); }
 
     public void setPreco(PGmoney preco) { this.preco = preco; }
 }

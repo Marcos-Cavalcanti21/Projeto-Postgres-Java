@@ -4,7 +4,6 @@ import MODEL.Funcionario;
 import SERVICE.ConnectDB.ConexaoPostSQL;
 import SERVICE.Get;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -53,5 +52,17 @@ public class FuncionarioDAO {
             e.printStackTrace();
         }
         ConexaoPostSQL.fecharConexao();
+    }
+
+    public static void recebeFuncionario(){
+
+    }
+
+    public static void recebeVendedores(){
+
+    }
+
+    public static void recebeEntregador(){
+
     }
 }

@@ -22,7 +22,6 @@ public class ProdutoDAO {
 
         System.out.println("Preço: ");
         preco = Get.money();
-        System.out.println(preco);
 
         Produto p = new Produto(nome, categoria, preco);
         Connection conexao = ConexaoPostSQL.getConecta_DB();

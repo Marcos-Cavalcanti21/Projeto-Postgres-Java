@@ -1,11 +1,7 @@
 package VIEW;
 
 import SERVICE.CONTROLLER.*;
-import SERVICE.DAO.CategoriaDAO;
-import SERVICE.DAO.EstoqueDAO;
-import SERVICE.DAO.ProdutoDAO;
 import SERVICE.Get;
-import org.w3c.dom.ls.LSOutput;
 
 public class Menu {
     public static void inicio(){
@@ -96,6 +92,16 @@ public class Menu {
         }
     }
     public static void consultar(){
+        while (0==0){
+            System.out.println("()Estoque");
+            System.out.println("()Categoria");
+            System.out.println("()Funcionarios");
+            System.out.println("()Cargo");
+            System.out.println("()Produto");
+            System.out.println("()Cliente");
+            System.out.println("()Vendas");
+
+        }
 
     }
 

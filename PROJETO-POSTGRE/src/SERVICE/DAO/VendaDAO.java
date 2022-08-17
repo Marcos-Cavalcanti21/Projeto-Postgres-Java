@@ -76,4 +76,16 @@ public class VendaDAO {
         }
         ConexaoPostSQL.fecharConexao();
     }
+
+    public static void recebeVendas(){
+
+    }
+
+    public static void recebeCaixaDia(){
+
+    }
+
+    public static void recebeCaixaAte(){
+
+    }
 }
