@@ -5,8 +5,8 @@ import SERVICE.Get;
 import VIEW.Menu;
 
 public class FuncionarioController {
-    public static void insereFuncionarioController(){ FuncionarioDAO.insereFuncionario(); }
-    public static void recebeFuncionarioController(){
+    public static void insereFuncionario(){ FuncionarioDAO.insereFuncionario(); }
+    public static void recebeFuncionario(){
         while (0==0){
             System.out.println("(1)Funcionarios");
             System.out.println("(2)Vendedores");

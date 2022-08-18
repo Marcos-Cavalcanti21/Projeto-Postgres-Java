@@ -1,11 +1,8 @@
 package SERVICE.CONTROLLER;
-import MODEL.Caixa;
+
 import SERVICE.DAO.CaixaDAO;
 import SERVICE.Get;
 import VIEW.Menu;
-
-import javax.sound.midi.Soundbank;
-import java.sql.SQLOutput;
 
 public class CaixaController {
     public static void Caixa(){
@@ -28,6 +25,11 @@ public class CaixaController {
                 case 2:
                     CaixaDAO.fechaCaixa();
                     break;
+                case 0:
+                    Menu.inicio();
+                    break;
+                default:
+                    System.out.println("Escolha uma das opções acima!");
             }
         }
 

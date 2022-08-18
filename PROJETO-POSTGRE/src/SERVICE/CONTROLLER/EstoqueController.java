@@ -3,5 +3,5 @@ package SERVICE.CONTROLLER;
 import SERVICE.DAO.EstoqueDAO;
 
 public class EstoqueController {
-    public static void insereEstoqueController(){ EstoqueDAO.insereEstoque(); }
+    public static void insereEstoque(){ EstoqueDAO.insereEstoque(); }
 }

@@ -43,4 +43,16 @@ public class ProdutoDAO {
         }
         ConexaoPostSQL.fecharConexao();
     }
+
+    public static void recebeProduto(){
+
+    }
+
+    public static void recebeCategoria(){
+
+    }
+
+    public static void recebeEstoque(){
+
+    }
 }

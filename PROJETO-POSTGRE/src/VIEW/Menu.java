@@ -45,7 +45,7 @@ public class Menu {
 
             switch (selected){
                 case 1:
-                    VendaController.postVendaController();
+                    VendaController.postVenda();
                     break;
 
             }
@@ -70,22 +70,22 @@ public class Menu {
 
             switch (selected){
                 case 1:
-                    CargoController.InsereCargoController();
+                    CargoController.InsereCargo();
                     break;
                 case 2:
-                    CategoriaController.insereCategoriaController();
+                    CategoriaController.insereCategoria();
                     break;
                 case 3:
-                    ClienteController.insereClienteController();
+                    ClienteController.insereCliente();
                     break;
                 case 4:
-                    EstoqueController.insereEstoqueController();
+                    EstoqueController.insereEstoque();
                     break;
                 case 5:
-                    FuncionarioController.insereFuncionarioController();
+                    FuncionarioController.insereFuncionario();
                     break;
                 case 6:
-                    ProdutoController.insereProdutoController();
+                    ProdutoController.insereProduto();
                     break;
             }
 
@@ -106,7 +106,25 @@ public class Menu {
 
             switch (selected){
                 case 1:
-                    EstoqueController.insereEstoqueController();
+                    EstoqueController.recebeEstoque();
+                    break;
+                case 2:
+                    CategoriaController.recebeEstoque();
+                    break;
+                case 3:
+                    FuncionarioController.recebeFuncionario();
+                    break;
+                case 4:
+                    CargoController.recebeCargo();
+                    break;
+                case 5:
+                    ProdutoController.recebeProduto();
+                    break;
+                case 6:
+                    ClienteController.recebeCliente();
+                    break;
+                case 7:
+                    VendaController.recebeVenda();
                     break;
                 case 0:
                     inicio();

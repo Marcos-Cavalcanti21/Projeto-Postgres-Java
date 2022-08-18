@@ -5,9 +5,9 @@ import SERVICE.Get;
 import VIEW.Menu;
 
 public class VendaController {
-    public static void postVendaController(){ VendaDAO.postVenda(); }
+    public static void postVenda(){ VendaDAO.postVenda(); }
 
-    public static void recebeVendaController(){
+    public static void recebeVenda(){
 //        VendaDAO.recebeVenda();
         while (0==0){
             System.out.println("(1)Vendas");
