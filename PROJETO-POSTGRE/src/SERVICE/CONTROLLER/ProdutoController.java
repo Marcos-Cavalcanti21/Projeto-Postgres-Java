@@ -16,7 +16,7 @@ public class ProdutoController {
             System.out.println("(0)Voltar");
             int selected = Get.integer();
 
-            switch (0==0){
+            switch (selected){
                 case 1:
                     ProdutoDAO.recebeProduto();
                     break;

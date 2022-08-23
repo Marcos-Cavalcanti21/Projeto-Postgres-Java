@@ -15,7 +15,6 @@ public class Get {
         while (true) {
             try {
                 valor = "$" + get.nextDouble();
-
                 break;
             } catch (InputMismatchException e){
                 System.out.println("\n\nApenas números");
@@ -24,7 +23,6 @@ public class Get {
                 System.out.println("Tente Novamente: ");
                 get.nextLine();
             }
-
         }
         try {
             return new PGmoney(valor);
@@ -46,7 +44,6 @@ public class Get {
                 System.out.println("Tente novamente: ");
                 get.nextLine();
             }
-
         }
         return valor;
     }
@@ -67,7 +64,6 @@ public class Get {
                 get.nextLine();
             }
         }
-
         return valor;
     }
 

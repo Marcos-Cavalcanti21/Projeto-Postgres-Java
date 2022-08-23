@@ -106,22 +106,22 @@ public class Menu {
 
             switch (selected){
                 case 1:
-                    EstoqueController.recebeEstoque();
+                    //EstoqueController.recebeEstoque();
                     break;
                 case 2:
-                    CategoriaController.recebeEstoque();
+                    //CategoriaController.recebeEstoque();
                     break;
                 case 3:
                     FuncionarioController.recebeFuncionario();
                     break;
                 case 4:
-                    CargoController.recebeCargo();
+                    //CargoController.recebeCargo();
                     break;
                 case 5:
                     ProdutoController.recebeProduto();
                     break;
                 case 6:
-                    ClienteController.recebeCliente();
+                    //ClienteController.recebeCliente();
                     break;
                 case 7:
                     VendaController.recebeVenda();
