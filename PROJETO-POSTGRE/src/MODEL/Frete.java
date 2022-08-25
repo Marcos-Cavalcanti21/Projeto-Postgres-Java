@@ -3,10 +3,15 @@ package MODEL;
 public class Frete {
     private int id;
     private float distancia;
-    private double valor;
+    private String valor;
 
-    public Frete(int id, float distancia, double valor) {
+    public Frete(int id, float distancia, String valor) {
         this.id = id;
+        this.distancia = distancia;
+        this.valor = valor;
+    }
+
+    public Frete(float distancia, String valor) {
         this.distancia = distancia;
         this.valor = valor;
     }
@@ -19,7 +24,7 @@ public class Frete {
 
     public void setDistancia(float distancia) { this.distancia = distancia; }
 
-    public double getValor() { return valor; }
+    public String getValor() { return valor; }
 
-    public void setValor(double valor) { this.valor = valor; }
+    public void setValor(String valor) { this.valor = valor; }
 }

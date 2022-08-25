@@ -68,7 +68,7 @@ public class ProdutoDAO {
                 ));
             }
 
-            imprimirCliente(lista);
+            imprimirProduto(lista);
             System.out.println("\n");
 
         } catch (SQLException e) {
@@ -105,7 +105,7 @@ public class ProdutoDAO {
     }
 
 
-    public static void imprimirCliente(ArrayList<Produto> l) {
+    public static void imprimirProduto(ArrayList<Produto> l) {
         System.out.println("\n\n=======RELATÓRIO GERAL DE PRODUTOS========");
 
         if (l.isEmpty()) {
