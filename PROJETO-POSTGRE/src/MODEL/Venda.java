@@ -1,50 +1,64 @@
 package MODEL;
 
-import java.sql.Time;
-import java.text.SimpleDateFormat;
+import java.sql.Date;
 
 public class Venda {
     private int id;
-    private SimpleDateFormat dataHora;
+    private Date dataHora;
     private String cliente;
     private String funcionario;
+    private int idProduto;
     private String produto;
     private int qtd;
-    private double total;
+    private String total;
     private boolean entrega;
     private String entregador;
-    private double frete;
+    private float frete;
 
-    public Venda(int id, SimpleDateFormat dataHora, String cliente, String funcionario, String produto, int qtd, double total, boolean entrega, double frete, String entregador) {
+//    public Venda(int id, SimpleDateFormat dataHora, String cliente, String funcionario, String produto, int qtd, String total, boolean entrega, String frete, String entregador) {
+//        this.id = id;
+//        this.dataHora = dataHora;
+//        this.cliente = cliente;
+//        this.funcionario = funcionario;
+//        this.produto = produto;
+//        this.qtd = qtd;
+//        this.total = total;
+//        this.entrega = entrega;
+//        this.frete = frete;
+//        this.entregador = entregador;
+//    }
+
+    public Venda(int id, Date dataHora, String cliente, String funcionario,int idProduto , String produto, int qtd, String total, boolean entrega, String entregador, float frete) {
         this.id = id;
         this.dataHora = dataHora;
         this.cliente = cliente;
         this.funcionario = funcionario;
+        this.idProduto = idProduto;
         this.produto = produto;
         this.qtd = qtd;
         this.total = total;
         this.entrega = entrega;
-        this.frete = frete;
         this.entregador = entregador;
+        this.frete = frete;
     }
 
-    public Venda(String cliente, String funcionario, String produto, int qtd, boolean entrega, double frete, String entregador) {
+    public Venda(String cliente, String funcionario, String produto, int qtd, boolean entrega, String entregador, float frete) {
         this.cliente = cliente;
         this.funcionario = funcionario;
         this.produto = produto;
         this.qtd = qtd;
         this.entrega = entrega;
-        this.frete = frete;
         this.entregador = entregador;
+        this.frete = frete;
     }
 
     public int getId() { return id; }
 
     public void setId(int id) { this.id = id; }
 
-    public SimpleDateFormat getDataHora() { return dataHora; }
+    public Date getDataHora() { return dataHora; }
 
-    public void setDataHora(SimpleDateFormat dataHora) { this.dataHora = dataHora; }
+    public void setDataHora(Date dataHora) { this.dataHora = dataHora; }
 
     public String getCliente() { return cliente; }
 
@@ -54,6 +68,10 @@ public class Venda {
 
     public void setFuncionario(String funcionario) { this.funcionario = funcionario; }
 
+    public int getIdProduto() { return idProduto; }
+
+    public void setIdProduto(int idProduto) { this.idProduto = idProduto; }
+
     public String getProduto() { return produto; }
 
     public void setProduto(String produto) { this.produto = produto; }
@@ -62,9 +80,9 @@ public class Venda {
 
     public void setQtd(int qtd) { this.qtd = qtd; }
 
-    public double getTotal() { return total; }
+    public String getTotal() { return total; }
 
-    public void setTotal(double total) { this.total = total; }
+    public void setTotal(String total) { this.total = total; }
 
     public boolean isEntrega() { return entrega; }
 
@@ -74,8 +92,8 @@ public class Venda {
 
     public void setEntregador(String entregador) { this.entregador = entregador; }
 
-    public double getFrete() { return frete; }
+    public float getFrete() { return frete; }
 
-    public void setFrete(double freteId) { this.frete = freteId; }
+    public void setFrete(float freteId) { this.frete = freteId; }
 
 }

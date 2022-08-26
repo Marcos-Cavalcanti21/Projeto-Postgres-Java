@@ -3,7 +3,9 @@ package SERVICE;
 import org.postgresql.util.PGmoney;
 
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -94,29 +96,71 @@ public class Get {
 
     }
 
-    public static SimpleDateFormat data(){
-        SimpleDateFormat valor;
+    public static String data(){
 
-        String pattern = "MM-dd-yyyy";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        Date date = simpleDateFormat.parse("12-01-2018");
-        System.out.println(date);
-
+        String date;
+        Date data;
 
         Scanner get = new Scanner(System.in);
 
         while (true){
             try{
-                valor = get.nextLine();
+                date = get.nextLine();
+                String pattern = "MM-dd-yyyy";
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+                data = simpleDateFormat.parse(date);
+                System.out.println(data);
                 break;
             }catch (InputMismatchException e){
-                System.out.println("\n\nApenas números");
-                System.out.println("Não use ponto, apenas 'virgula' para casas decimais.");
-                System.out.println("Ex: 99999,35");
+                System.out.println("\n\nApenas números e traços");
+                System.out.println("Não use barra, apenas 'hiffen' para separar datas.");
+                System.out.println("Ex: 01-12-2018");
                 System.out.println("Tente Novamente: ");
-                get.nextLine();
+                //get.nextLine();
+            } catch (ParseException e) {
+
+                System.out.println("\n\nApenas números e traços");
+                System.out.println("Não use barra, apenas 'hiffen' para separar datas.");
+                System.out.println("Ex: 01-12-2018");
+                System.out.println("Tente Novamente: ");
+                //get.nextLine();
+
+            } catch (RuntimeException e){
+
+                System.out.println("\n\nApenas números e traços");
+                System.out.println("Não use barra, apenas 'hiffen' para separar datas.");
+                System.out.println("Ex: 01-12-2018");
+                System.out.println("Tente Novamente: ");
+                //get.nextLine();
+
             }
         }
-        return valor;
+        return date;
     }
+
+//    public static Date data(){
+//
+//        String date;
+//        Date data;
+//
+//        Scanner get = new Scanner(System.in);
+//
+//        while (true){
+//            try{
+//                date = get.nextLine();
+//                String pattern = "MM-dd-yyyy";
+//                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+//                data = simpleDateFormat.parse(date);
+//                System.out.println(data);
+//                break;
+//            }catch (InputMismatchException e){
+//                System.out.println("\n\nApenas números e traços");
+//                System.out.println("Não use barra, apenas 'hiffen' para separar datas.");
+//                System.out.println("Ex: 01-12-2018");
+//                System.out.println("Tente Novamente: ");
+//                get.nextLine();
+//            }
+//        }
+//        return data;
+//    }
 }

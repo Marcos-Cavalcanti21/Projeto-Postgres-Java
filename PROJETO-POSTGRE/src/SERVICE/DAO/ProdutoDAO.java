@@ -3,7 +3,6 @@ package SERVICE.DAO;
 import MODEL.Produto;
 import SERVICE.ConnectDB.ConexaoPostSQL;
 import SERVICE.Get;
-import org.postgresql.util.PGmoney;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -110,7 +109,7 @@ public class ProdutoDAO {
 
         if (l.isEmpty()) {
             System.out.println("\n----------------------------------------");
-            System.out.println("------ Não há clientes cadastrados ------");
+            System.out.println("----- Não há Produtos cadastrados ------");
             System.out.println("----------------------------------------");
         } else {
             for (Produto p : l) {

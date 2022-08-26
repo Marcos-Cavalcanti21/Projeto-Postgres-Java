@@ -1,11 +1,20 @@
 import VIEW.Menu;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.text.ParseException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         Menu.inicio();
+
+//        String data;
+//
+//        System.out.println("Digite uma data");
+//        data = Get.string();
+//
+//        String pattern = "MM-dd-yyyy";
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+//        Date date = simpleDateFormat.parse(data);
+//        System.out.println(date);
     }
 }
 /*LOJA DE ROUPAS========================================

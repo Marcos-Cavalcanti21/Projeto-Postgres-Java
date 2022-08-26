@@ -1,6 +1,7 @@
 package VIEW;
 
 import SERVICE.CONTROLLER.*;
+import SERVICE.DAO.CaixaDAO;
 import SERVICE.Get;
 
 public class Menu {
@@ -27,6 +28,7 @@ public class Menu {
                     break;
                 case 4:
                     PDV();
+                    break;
             }
         }
     }
@@ -39,13 +41,19 @@ public class Menu {
             System.out.println("===============================\n");
             System.out.println("(1)Realizar venda");
             System.out.println("(2)Fechar Caixa");
-            System.out.println("(3)Voltar");
+            System.out.println("(0)Voltar");
 
             int selected = Get.integer();
 
             switch (selected){
                 case 1:
                     VendaController.postVenda();
+                    break;
+                case 2:
+                    CaixaDAO.fechaCaixa();
+                    break;
+                case 0:
+                    CaixaController.Caixa();
                     break;
 
             }
@@ -86,6 +94,9 @@ public class Menu {
                     break;
                 case 6:
                     ProdutoController.insereProduto();
+                    break;
+                case 0:
+                    inicio();
                     break;
             }
 
