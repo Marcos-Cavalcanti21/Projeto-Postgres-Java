@@ -112,6 +112,7 @@ public class Menu {
             System.out.println("(5)Produto");
             System.out.println("(6)Cliente");
             System.out.println("(7)Vendas");
+            System.out.println("(8)Caixas");
             System.out.println("(0)Voltar");
             int selected = Get.integer();
 
@@ -136,6 +137,9 @@ public class Menu {
                     break;
                 case 7:
                     VendaController.recebeVenda();
+                    break;
+                case 8:
+                    CaixaController.CaixaConsulta();
                     break;
                 case 0:
                     inicio();

@@ -32,9 +32,33 @@ public class CaixaController {
                     System.out.println("Escolha uma das opções acima!");
             }
         }
-
-
     }
 
+    public static void CaixaConsulta(){
+        while (0==0){
+            System.out.println("\n\n" +
+                               "==========================");
+            System.out.println("    Consulta de Caixa");
+            System.out.println("==========================\n");
+            System.out.println("(1)Caixa por Dia");
+            System.out.println("(2)Caixa por Periodo");
+            System.out.println("(0)Voltar");
+            int selected = Get.integer();
+
+            switch (selected){
+                case 1:
+                    CaixaDAO.recebeCaixaDia();
+                    Menu.PDV();
+                    break;
+                case 2:
+                    CaixaDAO.recebeCaixaPeriodo();
+                    break;
+                case 0:
+                    Menu.consultar();
+                    break;
+                default:
+                    System.out.println("Escolha uma das opções acima!");
+            }
+        }
 }
 

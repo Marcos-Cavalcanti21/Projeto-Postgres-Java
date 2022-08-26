@@ -3,7 +3,9 @@ package MODEL;
 public class Caixa {
     private double Total;
 
-    public Caixa(){}
+    public Caixa(double total) {
+        Total = total;
+    }
 
     public double getTotal() {
         return Total;

@@ -239,7 +239,7 @@ public class VendaDAO {
                 System.out.println("Id do Produto: " + v.getIdProduto());
                 System.out.println("Produto: " + v.getProduto());
                 System.out.println("Qtd: " + v.getQtd());
-                System.out.println("Total c/ Frete: " + v.getTotal());
+                System.out.println("Total s/ Frete: " + v.getTotal());
 
                 if (v.isEntrega() == true){ System.out.println("Entrega: Sim");}
                 else {System.out.println("Entrega: Não");}
