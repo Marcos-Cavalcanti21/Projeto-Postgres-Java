@@ -1,7 +1,6 @@
 package SERVICE.DAO;
 
 import MODEL.Caixa;
-import MODEL.Venda;
 import SERVICE.ConnectDB.ConexaoPostSQL;
 import SERVICE.Get;
 
@@ -49,7 +48,7 @@ public class CaixaDAO {
 
         Connection conexao = ConexaoPostSQL.getConecta_DB();
         try{
-            String sql = "SELECT FECHA_CAIXA()";
+            String sql = "SELECT FECHA_CAIXA('0,00')";
             Statement statement = conexao.createStatement();
             ResultSet results = statement.executeQuery(sql);
 
@@ -80,19 +79,51 @@ public class CaixaDAO {
             ResultSet results = statement.executeQuery(sql);
 
             while (results.next()) {
-                lista.add(new Venda(
-                        results.getInt("id"),
-                        results.getDate("dataHora"),
-                        results.getString("cliente"),
-                        results.getString("funcionario"),
-                        results.getInt("idProduto"),
-                        results.getString("produto"),
-                        results.getInt("qtd"),
-                        results.getString("total"),
-                        results.getBoolean("entrega"),
-                        results.getString("entregador"),
-                        results.getFloat("frete")
+                lista.add(new Caixa(
+                        results.getString("inicio"),
+                        results.getString("entradas"),
+                        results.getString("saidas"),
+                        results.getString("saldo")
+                ));
+            }
 
+            imprimirCaixa(lista);
+            System.out.println("\n");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        ConexaoPostSQL.fecharConexao();
+        return lista;
+    }
+
+    public static ArrayList<Caixa> recebeCaixaPeriodo(){
+        String dataInicio;
+        String dataFim;
+
+        ArrayList<Caixa> lista = new ArrayList<>();
+
+        System.out.println("=== Pesquisar Caixa ===");
+        System.out.println("Data Inicial: ");
+        dataInicio = Get.data();
+
+        System.out.println("Data Final: ");
+        dataFim = Get.data();
+
+        Connection conexao = ConexaoPostSQL.getConecta_DB();
+
+        try {
+            String sql = "SELECT * FROM GET_CAIXA_PERIODO('" + dataInicio + "','" + dataFim + "')";
+
+            Statement statement = conexao.createStatement();
+            ResultSet results = statement.executeQuery(sql);
+
+            while (results.next()) {
+                lista.add(new Caixa(
+                        results.getString("inicio"),
+                        results.getString("entradas"),
+                        results.getString("saidas"),
+                        results.getString("saldo")
                 ));
             }
 
@@ -107,29 +138,19 @@ public class CaixaDAO {
     }
 
     public static void imprimirCaixa(ArrayList<Caixa> l) {
-        System.out.println("\n\n=======RELATÓRIO GERAL DE PRODUTOS========");
+        System.out.println("\n\n=======RELATÓRIO GERAL DE CAIXA========");
 
         if (l.isEmpty()) {
             System.out.println("\n----------------------------------------");
-            System.out.println("------- Não há vendas no Sistema -------");
+            System.out.println("------- Não há Vendas no Periodo -------");
             System.out.println("----------------------------------------");
         } else {
-            for (Venda v : l) {
+            for (Caixa c : l) {
                 System.out.println("-----------------------------------------------------------------------");
-                System.out.println("ID: " + v.getId());
-                System.out.println("Data&Hora: " + v.getDataHora());
-                System.out.println("Cliente: " + v.getCliente());
-                System.out.println("Funcionario: " + v.getFuncionario());
-                System.out.println("Id do Produto: " + v.getIdProduto());
-                System.out.println("Produto: " + v.getProduto());
-                System.out.println("Qtd: " + v.getQtd());
-                System.out.println("Total s/ Frete: " + v.getTotal());
-
-                if (v.isEntrega() == true){ System.out.println("Entrega: Sim");}
-                else {System.out.println("Entrega: Não");}
-
-                System.out.println("Frete: " + v.getFrete());
-                System.out.println("Entregador: " + v.getEntregador());
+                System.out.println("ID: " + c.getInicio());
+                System.out.println("Data&Hora: " + c.getEntradas());
+                System.out.println("Cliente: " + c.getSaidas());
+                System.out.println("Funcionario: " + c.getSaidas());
             }
             LocalDate data = LocalDate.now();
             System.out.println("---Relatorio gerado em: " + data.getDayOfMonth() + "/" + (data.getMonthValue()) + "/" + data.getYear() + "-------");

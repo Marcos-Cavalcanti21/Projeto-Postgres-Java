@@ -45,7 +45,7 @@ public class CaixaController {
             System.out.println("(0)Voltar");
             int selected = Get.integer();
 
-            switch (selected){
+            switch (selected) {
                 case 1:
                     CaixaDAO.recebeCaixaDia();
                     Menu.PDV();
@@ -60,5 +60,6 @@ public class CaixaController {
                     System.out.println("Escolha uma das opções acima!");
             }
         }
+    }
 }
 

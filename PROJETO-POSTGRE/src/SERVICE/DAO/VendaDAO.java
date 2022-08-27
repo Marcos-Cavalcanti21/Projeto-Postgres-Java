@@ -223,11 +223,11 @@ public class VendaDAO {
     }
 
     public static void imprimirVenda(ArrayList<Venda> l) {
-        System.out.println("\n\n=======RELATÓRIO GERAL DE PRODUTOS========");
+        System.out.println("\n\n=======RELATÓRIO GERAL DE VENDAS========");
 
         if (l.isEmpty()) {
             System.out.println("\n----------------------------------------");
-            System.out.println("------- Não há vendas no Sistema -------");
+            System.out.println("------- Não há Vendas no Sistema -------");
             System.out.println("----------------------------------------");
         } else {
             for (Venda v : l) {
