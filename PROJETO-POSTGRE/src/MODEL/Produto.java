@@ -1,7 +1,5 @@
 package MODEL;
 
-import org.postgresql.util.PGmoney;
-
 public class Produto {
     private int id;
     private String nome;
